@@ -1,18 +1,16 @@
 import path from 'path';
 import { merge } from 'webpack-merge';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import common from './webpack.common.config';
 
 export default merge(common, {
   mode: 'development',
-  module: {
-    rules: [
-      {
-        test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-    ],
-  },
   devtool: 'inline-source-map',
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      async: false,
+    }),
+  ],
   devServer: {
     static: path.join(__dirname, 'build'),
     historyApiFallback: true,

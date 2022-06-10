@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 
 const Loans: FC = () => {
   return (
     <Box>
       <Typography>Loans</Typography>
+      <Stack direction="column"></Stack>
     </Box>
   );
 };

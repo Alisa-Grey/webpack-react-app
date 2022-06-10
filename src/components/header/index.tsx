@@ -11,8 +11,8 @@ import {
   MenuList,
   MenuItem,
 } from '@mui/material';
-import { useDispatch } from 'react-redux';
 import CustomButton from '../common/button';
+import Logo from '../../assets/img/logo.jpg';
 import './style.scss';
 
 const menu = [
@@ -22,10 +22,12 @@ const menu = [
 ];
 
 interface IHeaderProps {
-  data: { [key: string]: string | any[] };
+  data: { [key: string]: string | number };
 }
 
 const Header: FC<IHeaderProps> = ({ data }) => {
+  const headerLogo = new Image();
+  headerLogo.src = Logo;
   const avatar = (data.first_name as string)[0];
 
   const [open, setOpen] = useState(false);
@@ -67,17 +69,7 @@ const Header: FC<IHeaderProps> = ({ data }) => {
 
   return (
     <Box className="header">
-      <img
-        src="../../assets/logo.jpg"
-        alt="Company logo"
-        className="header__logo"
-      />
-
-      {(data.loans as any[]).length === 0 && (
-        <CustomButton variant="contained" className="no-loans__btn">
-          Get new loan
-        </CustomButton>
-      )}
+      <img src={Logo} alt="Company logo" className="header__logo" />
       <Box
         ref={anchorRef}
         id="composition-button"

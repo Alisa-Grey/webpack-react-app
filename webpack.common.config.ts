@@ -1,25 +1,18 @@
 import path from 'path';
-import {
-  Configuration as WebpackConfiguration,
-  HotModuleReplacementPlugin,
-} from 'webpack';
+import { Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ForkRsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import ESLintPlugin from 'eslint-webpack-plugin';
-
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
 }
 
 const config: Configuration = {
+  entry: './src/index.tsx',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: 'assets/images/[name][ext]',
     clean: true,
   },
-  entry: './src/index.tsx',
   module: {
     rules: [
       {
@@ -37,29 +30,30 @@ const config: Configuration = {
         },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        test: /\.s[ac]ss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg)$/i,
+        use: {
+          loader: 'url-loader',
+        },
       },
     ],
   },
   resolve: {
+    modules: ['node_modules'],
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
+  target: ['web', 'es5'],
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),
-    new HotModuleReplacementPlugin(),
-    new ForkRsCheckerWebpackPlugin({
-      async: false,
-    }),
-    new ESLintPlugin({
-      extensions: ['js', 'jsx', 'ts', 'tsx'],
-    }),
   ],
   devtool: 'inline-source-map',
   devServer: {
-    static: path.join(__dirname, 'build'),
+    static: path.join(__dirname, 'assets'),
     historyApiFallback: true,
     port: 3000,
     open: true,
