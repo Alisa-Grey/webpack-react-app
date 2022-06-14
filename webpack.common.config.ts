@@ -12,6 +12,7 @@ const config: Configuration = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -34,10 +35,12 @@ const config: Configuration = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg)$/i,
-        use: {
-          loader: 'url-loader',
-        },
+        test: /\.(png|svg|jpg|jpeg)?$/i,
+        type: 'asset',
+      },
+      {
+        test: /\.(woff(2)?)$/i,
+        type: 'asset/resource',
       },
     ],
   },
@@ -49,16 +52,10 @@ const config: Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+      favicon: 'src/favicon.ico',
     }),
   ],
   devtool: 'inline-source-map',
-  devServer: {
-    static: path.join(__dirname, 'assets'),
-    historyApiFallback: true,
-    port: 3000,
-    open: true,
-    hot: true,
-  },
 };
 
 export default config;

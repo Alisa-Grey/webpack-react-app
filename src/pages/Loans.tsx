@@ -4,7 +4,7 @@ import { Box, Stack, Typography } from '@mui/material';
 const Loans: FC = () => {
   return (
     <Box>
-      <Typography>Loans</Typography>
+      <Typography>Loans12</Typography>
       <Stack direction="column"></Stack>
     </Box>
   );

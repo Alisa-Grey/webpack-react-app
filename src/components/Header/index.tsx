@@ -11,7 +11,7 @@ import {
   MenuList,
   MenuItem,
 } from '@mui/material';
-import CustomButton from '../common/button';
+import CustomButton from '../common/Button';
 import Logo from '../../assets/img/logo.jpg';
 import './style.scss';
 
@@ -69,7 +69,12 @@ const Header: FC<IHeaderProps> = ({ data }) => {
 
   return (
     <Box className="header">
-      <img src={Logo} alt="Company logo" className="header__logo" />
+      <img
+        src={Logo}
+        alt="Company logo"
+        className="header__logo"
+        data-info="Created via FreeLogo.me"
+      />
       <Box
         ref={anchorRef}
         id="composition-button"

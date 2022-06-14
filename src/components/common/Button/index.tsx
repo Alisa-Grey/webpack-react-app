@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Button, ButtonProps, styled } from '@mui/material';
+import { Button, ButtonProps } from '@mui/material';
 
 interface IBtnProps extends ButtonProps {
   id?: string;
@@ -11,7 +11,7 @@ interface IBtnProps extends ButtonProps {
   href?: string;
 }
 
-const CustomButton: React.FC<IBtnProps> = ({
+const CustomButton: FC<IBtnProps> = ({
   id,
   children,
   onClick,

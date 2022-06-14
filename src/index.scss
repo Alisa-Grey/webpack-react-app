@@ -1,3 +1,31 @@
+@font-face {
+  font-family: "Proxima";
+  src: url('./assets/fonts/ProximaNova-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Proxima";
+  src: url('./assets/fonts/ProximaNova-Semibold.woff') format('woff');
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Proxima";
+  src: url('./assets/fonts/ProximaNova-Bold.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Proxima";
+  src: url('./assets/fonts/ProximaNova-Light.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,15 +38,10 @@ body {
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'DancingScript', sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 #root {

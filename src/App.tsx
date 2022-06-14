@@ -4,7 +4,7 @@ import Profile from './pages/Profile';
 import Loans from './pages/Loans';
 import NotFound from './pages/NotFound';
 import Layout from './pages/Layout';
-import Header from './components/header';
+import Header from './components/Header';
 
 export const client = {
   id: 1,
