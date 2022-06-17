@@ -2,22 +2,16 @@ import React, { FC } from 'react';
 import { Box, Typography } from '@mui/material';
 
 enum statusColors {
-  NEW = '#3437AD',
-  CURRENT = '#82E3BA',
-  FULLYPAYED = '#595A94',
-  LATE = '#FBB707',
-  DEFAULT = '#FB6E07',
-  DELINQUENT = '#FB4207',
-  CHARGEDOFF = '#D80303',
+  CURRENT = '#51c192',
+  PAYED = '#1697a0',
+  LATE = '#fb8936',
+  CHARGEDOFF = '#890b0b',
 }
 
 enum statusTitles {
-  NEW = 'New',
   CURRENT = 'Current',
-  FULLYPAYED = 'Fully payed',
+  PAYED = 'Payed',
   LATE = 'Late',
-  DEFAULT = 'Default',
-  DELINQUENT = 'Delinquent',
   CHARGEDOFF = 'Charged off',
 }
 
@@ -40,7 +34,7 @@ const StatusBadge: FC<IStatusBadgeInterface> = ({ status, className }) => {
       }}
       className={className}
     >
-      <Typography variant='caption' sx={{ fontWeight: 600, color: '#fff' }}>
+      <Typography variant="caption" sx={{ fontWeight: 600, color: '#fff' }}>
         {title}
       </Typography>
     </Box>

@@ -14,7 +14,7 @@ const BpIcon = styled('span')(() => ({
   borderRadius: '4px',
   backgroundColor: '#fff',
   'input:hover ~ &': {
-    borderColor: '#82E3BA',
+    borderColor: '##51c192',
   },
   'input:disabled ~ &': {
     boxShadow: 'none',
@@ -39,7 +39,7 @@ const BpCheckedIcon = styled(BpIcon)({
     content: '""',
   },
   'input:hover ~ &': {
-    borderColor: '#82E3BA',
+    borderColor: '##51c192',
   },
 });
 

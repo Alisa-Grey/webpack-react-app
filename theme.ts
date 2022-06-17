@@ -79,7 +79,7 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: '#2FBB80',
-      light: '#82E3BA',
+      light: '##51c192',
     },
   },
   components: {
@@ -99,7 +99,7 @@ export const theme = createTheme({
             boxShadow: '0px 8px 16px rgba(76, 222, 143, 0.3)',
           },
           '&:active': {
-            backgroundColor: '#82E3BA',
+            backgroundColor: '##51c192',
             boxShadow: 'none',
           },
           '&:disabled': {
@@ -110,10 +110,10 @@ export const theme = createTheme({
         outlined: {
           padding: '10px 30px',
           color: '#0E117B',
-          border: '1px solid #82E3BA',
+          border: '1px solid ##51c192',
           '&:hover': {
-            border: '1px solid #82E3BA',
-            backgroundColor: '#82E3BA',
+            border: '1px solid ##51c192',
+            backgroundColor: '##51c192',
           },
           '&:active': {
             color: '#FFF',
@@ -164,7 +164,7 @@ export const theme = createTheme({
           fontWeight: 700,
           fontSize: '22px',
           color: '#FFF',
-          backgroundColor: '#82E3BA',
+          backgroundColor: '##51c192',
         },
       },
     },

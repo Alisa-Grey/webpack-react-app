@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { Box, Stack, Typography } from '@mui/material';
-import { DateTime } from 'luxon';
 import LoanTerms from '../LoanTerms';
-import LoanCalendar from '../LoanCalendar';
+import LoanCalendar from '../PaymentsCalendar';
 import StatusBadge from '../common/StatusBadge';
 import { formatDate, formatMoney } from '../../functions';
 import { ILoan } from '../../store/types';
+import './style.scss';
 
 export interface ILoanInterface {
   data: ILoan;
@@ -13,16 +13,13 @@ export interface ILoanInterface {
 }
 
 const content = {
-  CURRENT: `Your bill we be payed soon. Estimated payment date: ${DateTime.now()
-    .plus({ days: 2 })
-    .toLocaleString(DateTime.DATE_MED)}`,
-  CHARGEDOFF: 'The loan was closed',
+  CHARGEDOFF: 'The loan was charged off due to missed payments',
   PAYED: 'The loan was fully payed',
 };
 
 const Loan: FC<ILoanInterface> = ({ data }) => {
   return (
-    <Box sx={{ mb: '20px' }}>
+    <Box sx={{ mb: '20px' }} className="loan">
       <Box sx={{ flexBasis: '60%' }}>
         <Box
           sx={{
@@ -49,15 +46,13 @@ const Loan: FC<ILoanInterface> = ({ data }) => {
         </Box>
 
         <Stack
-          direction={{ xs: 'column', md: 'row' }}
+          direction="column"
           sx={{ px: '23px', pt: '30px' }}
           className="loan__details-container"
         >
-          <Box className="loan__details">
-            <Typography variant="body1">
-              {content[data.status as keyof typeof content]}
-            </Typography>
-          </Box>
+          <Typography variant="body1" sx={{ mb: '10px' }}>
+            {content[data.status as keyof typeof content]}
+          </Typography>
           {data.payments && <LoanCalendar payments={data.payments} />}
         </Stack>
       </Box>

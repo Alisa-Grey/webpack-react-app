@@ -11,14 +11,12 @@ import {
   MenuList,
   MenuItem,
 } from '@mui/material';
-import CustomButton from '../common/Button';
 import Logo from '../../assets/img/logo.jpg';
 import './style.scss';
 
 const menu = [
-  { title: 'Current loans', link: '/customer/loans' },
-  { title: 'My profile', link: '/customer/profile' },
-  { title: 'History', link: '/customer/history' },
+  { title: 'Loans', link: '/customer/loans' },
+  { title: 'Profile', link: '/customer/profile' },
 ];
 
 interface IHeaderProps {
@@ -28,7 +26,7 @@ interface IHeaderProps {
 const Header: FC<IHeaderProps> = ({ data }) => {
   const headerLogo = new Image();
   headerLogo.src = Logo;
-  const avatar = (data.first_name as string)[0];
+  const avatar = (data.first_name as string)[0] + (data.last_name as string)[0];
 
   const [open, setOpen] = useState(false);
   const [btnClass, setBtnClass] = useState('');
@@ -97,7 +95,7 @@ const Header: FC<IHeaderProps> = ({ data }) => {
             disablePortal
             style={{ zIndex: '99' }}
           >
-            {({ TransitionProps, placement }): any => (
+            {({ TransitionProps, placement }) => (
               <Grow
                 {...TransitionProps}
                 style={{
