@@ -4,7 +4,7 @@ import LoanTerms from '../LoanTerms';
 import LoanCalendar from '../PaymentsCalendar';
 import StatusBadge from '../common/StatusBadge';
 import { formatDate, formatMoney } from '../../functions';
-import { ILoan } from '../../store/types';
+import { ILoan } from '../../store/types/loan';
 import './style.scss';
 
 export interface ILoanInterface {
@@ -19,7 +19,7 @@ const content = {
 
 const Loan: FC<ILoanInterface> = ({ data }) => {
   return (
-    <Box sx={{ mb: '20px' }} className="loan">
+    <Box sx={{ mb: '20px' }} className='loan'>
       <Box sx={{ flexBasis: '60%' }}>
         <Box
           sx={{
@@ -30,27 +30,27 @@ const Loan: FC<ILoanInterface> = ({ data }) => {
             borderBottom: '1px solid #F3F4FA',
           }}
         >
-          <Typography variant="h1" component="h2">
+          <Typography variant='h1' component='h2'>
             {formatMoney(Number(data.amount))}
           </Typography>
           <Box
             sx={{ display: 'flex', alignItems: 'center' }}
-            className="loan__status"
+            className='loan__status'
           >
             <StatusBadge
               status={data.status as string}
-              className="badge"
+              className='badge'
             ></StatusBadge>
             <Typography>{formatDate(String(data.startDate), 'DDD')}</Typography>
           </Box>
         </Box>
 
         <Stack
-          direction="column"
+          direction='column'
           sx={{ px: '23px', pt: '30px' }}
-          className="loan__details-container"
+          className='loan__details-container'
         >
-          <Typography variant="body1" sx={{ mb: '10px' }}>
+          <Typography variant='body1' sx={{ mb: '10px' }}>
             {content[data.status as keyof typeof content]}
           </Typography>
           {data.payments && <LoanCalendar payments={data.payments} />}

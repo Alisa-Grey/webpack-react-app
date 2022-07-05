@@ -164,7 +164,7 @@ export const theme = createTheme({
           fontWeight: 700,
           fontSize: '22px',
           color: '#FFF',
-          backgroundColor: '##51c192',
+          backgroundColor: '#51c192',
         },
       },
     },

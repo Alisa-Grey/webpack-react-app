@@ -1,0 +1,42 @@
+.menu-container {
+  flex-basis: 40%;
+}
+
+.form-container {
+  justify-content: center;
+  align-items: center;
+  flex-basis: 60%;
+  max-width: 40%;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.form {
+  width: 100%;
+  &__input, &__btn {
+    width: inherit;
+  }
+
+  &__input {
+    color: #595A94
+  }
+
+  .masked-input {
+    margin-bottom: 20px;
+    padding: 10px;
+    color: #595A94
+  }
+
+}
+
+@media (max-width: 800px) {
+  .form-container, .menu-container {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .menu-container {
+    margin-bottom: 20px;
+  }
+}

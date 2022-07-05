@@ -1,6 +1,6 @@
 import Dinero from 'dinero.js';
 import { DateTime } from 'luxon';
-import { ILoan, IPayment } from '../store/types';
+import { ILoan, IPayment } from '../store/types/loan';
 
 export const formatMoney = (amount: number): string => {
   return Dinero({ amount, currency: 'EUR' }).toFormat('$0,0.00');

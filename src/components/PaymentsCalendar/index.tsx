@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Grid, Paper, Typography } from '@mui/material';
-import { IPayment } from '../../store/types';
+import { IPayment } from '../../store/types/loan';
 import { formatDate } from '../../functions';
 import './style.scss';
 
@@ -26,9 +26,9 @@ const PaymentsCalendar: FC<IProps> = ({ payments }) => {
     >
       {payments.length &&
         payments.map((payment: IPayment, index: number) => (
-          <Grid item xs={1} md={1} key={index} className="payments">
+          <Grid item xs={1} md={1} key={index} className='payments'>
             <Paper
-              className="payments__item"
+              className='payments__item'
               sx={{
                 backgroundColor: `${
                   paymentStatusColors[
@@ -38,7 +38,7 @@ const PaymentsCalendar: FC<IProps> = ({ payments }) => {
               }}
             >
               <Typography
-                variant="buttonMini"
+                variant='buttonMini'
                 className={
                   payment.paymentStatus === 'LATE' ||
                   payment.paymentStatus === 'CURRENT' ||

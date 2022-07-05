@@ -6,10 +6,11 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
   ref
 ) {
-  return <MuiAlert elevation={6} ref={ref} variant="outlined" {...props} />;
+  return <MuiAlert elevation={6} ref={ref} variant='outlined' {...props} />;
 });
 
 const CustomAlert: React.FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [alertState, setAlertState] = useState(false);
 
   const handleClose = (
@@ -33,7 +34,7 @@ const CustomAlert: React.FC = () => {
           onClose={handleClose}
           // severity={alertState.severity}
           sx={{ width: '100%' }}
-          variant="filled"
+          variant='filled'
         >
           {/* {alertState.message} */}
         </Alert>

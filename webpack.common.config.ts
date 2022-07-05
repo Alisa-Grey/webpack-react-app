@@ -37,10 +37,16 @@ const config: Configuration = {
       {
         test: /\.(png|svg|jpg|jpeg)?$/i,
         type: 'asset',
+        generator: {
+          filename: 'assets/img/[hash][ext][query]',
+        },
       },
       {
         test: /\.(woff(2)?)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[hash][ext][query]',
+        },
       },
     ],
   },
